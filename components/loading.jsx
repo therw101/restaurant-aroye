@@ -81,7 +81,7 @@ export function LoadingScreen() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-background overflow-hidden"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-background overflow-hidden"
         >
           {/* Video Container */}
           <motion.div
