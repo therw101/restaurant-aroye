@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { ScrollAnimation, StaggerContainer, StaggerItem } from "@/components/ui/scroll-animation"
+import { motion } from "motion/react"
 
 export function TestimonialsSection({ testimonials }) {
   return (
@@ -15,7 +17,7 @@ export function TestimonialsSection({ testimonials }) {
       aria-labelledby="testimonials-heading"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-20 space-y-4">
+        <ScrollAnimation className="text-center mb-20 space-y-4">
           <h2
             id="testimonials-heading"
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl"
@@ -25,14 +27,16 @@ export function TestimonialsSection({ testimonials }) {
           <p className="text-sm text-muted-foreground font-light">
             127 รีวิว | คะแนนเฉลี่ย 4.8/5 จากลูกค้าที่ไว้วางใจเรา
           </p>
-        </div>
+        </ScrollAnimation>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <StaggerContainer className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <Card
-              key={`testimonial-${testimonial.name}-${index}`}
-              className="border border-border rounded-none shadow-none bg-card"
-            >
+            <StaggerItem key={`testimonial-${testimonial.name}-${index}`}>
+              <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+              <Card className="border border-border rounded-none shadow-none bg-card">
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between mb-3">
                   <div>
@@ -58,8 +62,10 @@ export function TestimonialsSection({ testimonials }) {
                 </p>
               </CardContent>
             </Card>
+            </motion.div>
+          </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

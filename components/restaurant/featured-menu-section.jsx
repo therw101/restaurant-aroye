@@ -9,6 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { ScrollAnimation, StaggerContainer, StaggerItem } from "@/components/ui/scroll-animation"
+import { motion } from "motion/react"
 
 export function FeaturedMenuSection({ menuItems }) {
   return (
@@ -18,7 +20,7 @@ export function FeaturedMenuSection({ menuItems }) {
       aria-labelledby="menu-heading"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="text-center mb-20 space-y-4">
+        <ScrollAnimation className="text-center mb-20 space-y-4">
           <h2
             id="menu-heading"
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl"
@@ -28,22 +30,26 @@ export function FeaturedMenuSection({ menuItems }) {
           <p className="text-sm text-muted-foreground font-light max-w-xl mx-auto">
             เมนูคัดสรรพิเศษ ที่คุณไม่ควรพลาด ทุกจานบอกเล่าเรื่องราวของรสชาติไทยแท้
           </p>
-        </div>
+        </ScrollAnimation>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <StaggerContainer className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {menuItems.map((item, index) => (
-            <Card
-              key={`menu-${item.name}-${index}`}
-              className="border border-border rounded-none shadow-none hover:shadow-lg transition-shadow duration-300 bg-card overflow-hidden"
-            >
+            <StaggerItem key={`menu-${item.name}-${index}`}>
+              <Card className="border border-border rounded-none shadow-none hover:shadow-lg transition-all duration-300 bg-card overflow-hidden group hover:scale-105">
               <div className="aspect-4/3 relative w-full overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                  className="h-full w-full"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </motion.div>
               </div>
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between mb-2">
@@ -70,7 +76,7 @@ export function FeaturedMenuSection({ menuItems }) {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-6 text-xs font-medium border border-border rounded-none hover:bg-primary hover:text-primary-foreground"
+                    className="h-8 px-6 text-xs font-medium border border-border rounded-none hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105"
                     aria-label={`สั่ง ${item.name}`}
                   >
                     สั่ง
@@ -78,8 +84,9 @@ export function FeaturedMenuSection({ menuItems }) {
                 </div>
               </CardContent>
             </Card>
+          </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )
