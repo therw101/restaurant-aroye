@@ -11,7 +11,8 @@ export function LoadingScreen() {
   const videoRef = useRef(null)
 
   useEffect(() => {
-     
+    // This pattern is necessary for Next.js to avoid hydration mismatches
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
 
     // ตรวจสอบว่า page โหลดเสร็จแล้วหรือยัง

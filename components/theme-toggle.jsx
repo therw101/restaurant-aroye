@@ -9,7 +9,8 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-     
+    // This pattern is necessary for Next.js to avoid hydration mismatches
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 
