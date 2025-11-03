@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { motion, AnimatePresence } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -66,7 +67,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a
+          <Link
             href="/"
             onClick={(e) => {
               e.preventDefault()
@@ -75,7 +76,7 @@ export function Navbar() {
             className="text-xl font-light tracking-tight text-foreground hover:opacity-70 transition-opacity cursor-pointer"
           >
             AROYÉ
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">

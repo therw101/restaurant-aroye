@@ -11,6 +11,7 @@ export function LoadingScreen() {
   const videoRef = useRef(null)
 
   useEffect(() => {
+     
     setMounted(true)
 
     // ตรวจสอบว่า page โหลดเสร็จแล้วหรือยัง
