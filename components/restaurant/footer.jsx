@@ -12,33 +12,33 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-12">
           <address className="not-italic">
             <h3 className="text-sm font-medium mb-6 text-foreground">
-              ติดต่อเรา
+              Contact Us
             </h3>
             <div className="space-y-2 text-sm text-muted-foreground font-light">
-              <p>123 ถนนสุขุมวิท</p>
-              <p>กรุงเทพมหานคร 10110</p>
+              <p>123 Sukhumvit Road</p>
+              <p>Bangkok 10110</p>
               <a
                 href="tel:021234567"
                 className="block mt-4 hover:text-primary transition-colors"
               >
-                โทร: 02-123-4567
+                Phone: 02-123-4567
               </a>
             </div>
           </address>
 
           <div>
             <h3 className="text-sm font-medium mb-6 text-foreground">
-              เวลาทำการ
+              Opening Hours
             </h3>
             <div className="space-y-2 text-sm text-muted-foreground font-light">
-              <time className="block">จันทร์ - ศุกร์: 11:00 - 21:00</time>
-              <time className="block">เสาร์ - อาทิตย์: 10:00 - 22:00</time>
+              <time className="block">Monday - Friday: 11:00 - 21:00</time>
+              <time className="block">Saturday - Sunday: 10:00 - 22:00</time>
             </div>
           </div>
 
           <div>
             <h3 className="text-sm font-medium mb-6 text-foreground">
-              ติดตามเรา
+              Follow Us
             </h3>
             <div className="space-y-3 text-sm font-light">
               <a
@@ -73,7 +73,7 @@ export function Footer() {
 
         <div className="text-center">
           <p className="text-xs text-muted-foreground font-light">
-            © {new Date().getFullYear()} AROYÉ. สงวนลิขสิทธิ์.
+            © {new Date().getFullYear()} AROYÉ. All rights reserved.
           </p>
         </div>
       </div>

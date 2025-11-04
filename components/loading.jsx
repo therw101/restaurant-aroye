@@ -15,7 +15,7 @@ export function LoadingScreen() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
 
-    // ตรวจสอบว่า page โหลดเสร็จแล้วหรือยัง
+    // Check if page has finished loading
     const handleLoad = () => {
       setPageLoaded(true)
     }
@@ -25,7 +25,7 @@ export function LoadingScreen() {
     } else {
       window.addEventListener("load", handleLoad)
 
-      // Fallback: ซ่อน loading หลังจาก 5 วินาทีถ้ายังไม่เสร็จ
+      // Fallback: Hide loading after 5 seconds if not finished
       const fallbackTimer = setTimeout(() => {
         setPageLoaded(true)
       }, 5000)
@@ -37,10 +37,10 @@ export function LoadingScreen() {
     }
   }, [])
 
-  // เมื่อวิดีโอจบให้ transition ออก (รอให้ page โหลดเสร็จด้วย)
+  // When video ends, transition out (wait for page to load too)
   useEffect(() => {
     if (videoEnded) {
-      // รอให้ page โหลดเสร็จ หรือรอ 500ms หลังจากวิดีโอจบ
+      // Wait for page to load, or wait 500ms after video ends
       const shouldWait = !pageLoaded
       const waitTime = shouldWait ? 1000 : 400
 
@@ -51,10 +51,10 @@ export function LoadingScreen() {
     }
   }, [videoEnded, pageLoaded])
 
-  // Fallback: ถ้า page โหลดเสร็จแล้วแต่วิดีโอยังไม่จบ ให้รอเพิ่มอีกนิด
+  // Fallback: If page loaded but video hasn't ended, wait a bit more
   useEffect(() => {
     if (pageLoaded && !videoEnded) {
-      // รอเพิ่ม 3 วินาทีหลังจาก page โหลดเสร็จ เพื่อให้วิดีโอมีโอกาสจบ
+      // Wait an additional 3 seconds after page loads to give video a chance to end
       const fallbackTimer = setTimeout(() => {
         if (!videoEnded) {
           setVideoEnded(true)
@@ -69,7 +69,7 @@ export function LoadingScreen() {
   }
 
   const handleVideoError = () => {
-    // ถ้าวิดีโอโหลดไม่ได้ ให้ transition ออกเลย
+    // If video fails to load, transition out immediately
     setVideoEnded(true)
   }
 
@@ -108,7 +108,7 @@ export function LoadingScreen() {
                 onEnded={handleVideoEnd}
                 onError={handleVideoError}
                 onLoadedData={() => {
-                  // วิดีโอเริ่มโหลดแล้ว
+                  // Video started loading
                   if (videoRef.current) {
                     videoRef.current.play().catch(console.error)
                   }
@@ -127,7 +127,7 @@ export function LoadingScreen() {
                   AROYÉ
                 </h2>
                 <p className="mt-2 text-sm font-light text-muted-foreground">
-                  รสชาติแห่งความเป็นไทย
+                  The Taste of Authentic Thailand
                 </p>
               </div>
             )} */}

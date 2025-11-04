@@ -21,14 +21,14 @@ export function HeroSection() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <Image
-              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80"
-              alt="อาหารไทย"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+              <Image
+                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80"
+                alt="Thai Food"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
           </motion.div>
 
           {/* Content - Right Side */}
@@ -41,7 +41,7 @@ export function HeroSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <span className="text-xs font-medium tracking-wider text-muted-foreground uppercase">
-                  รสชาติไทยแท้ สืบทอดมา 20 ปี
+                  Authentic Thai Taste, 20 Years Tradition
                 </span>
               </motion.div>
 
@@ -52,14 +52,14 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                รสชาติแห่ง
+                The Taste of
                 <motion.span
                   className="block mt-2 font-normal"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  ความเป็นไทย
+                  Authentic Thailand
                 </motion.span>
               </motion.h1>
 
@@ -69,11 +69,11 @@ export function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                เปิดประสบการณ์รสชาติอาหารไทยแท้ที่หอมกลิ่นเครื่องเทศสดใหม่
+                Experience authentic Thai flavors with fresh aromatic spices
                 <br />
-                ทุกจานปรุงด้วยใจ จากวัตถุดิบคุณภาพพรีเมียม สู่รสชาติที่ทำให้คุณ
+                Every dish prepared with heart, from premium ingredients to flavors that make you
                 <br />
-                รู้สึกเหมือนกลับบ้าน
+                feel like coming home
               </motion.p>
 
               {/* Trust Signals */}
@@ -98,12 +98,12 @@ export function HeroSection() {
                       </motion.span>
                     ))}
                   </div>
-                  <span>(127 รีวิว)</span>
+                  <span>(127 reviews)</span>
                 </div>
                 <Separator orientation="vertical" className="h-4" />
-                <span>เปิดบริการ 20+ ปี</span>
+                <span>20+ Years Serving</span>
                 <Separator orientation="vertical" className="h-4" />
-                <span>เชฟมืออาชีพ</span>
+                <span>Professional Chefs</span>
               </motion.div>
 
               <motion.div
@@ -116,14 +116,14 @@ export function HeroSection() {
                   size="lg"
                   className="h-12 px-8 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-none transition-all duration-300 hover:scale-105"
                 >
-                  ดูเมนูออนไลน์
+                  View Menu Online
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="h-12 px-8 text-sm font-medium border border-border rounded-none hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105"
                 >
-                  จองโต๊ะ
+                  Reserve Table
                 </Button>
               </motion.div>
             </div>

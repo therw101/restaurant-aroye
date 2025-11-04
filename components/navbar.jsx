@@ -18,7 +18,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // ปิด mobile menu เมื่อ scroll
+  // Close mobile menu when scrolling
   useEffect(() => {
     const handleScroll = () => {
       setIsMobileMenuOpen(false)
@@ -43,17 +43,29 @@ export function Navbar() {
         behavior: "smooth",
       })
 
-      // ปิด mobile menu หลังจากคลิก
+      // Close mobile menu after click
       setIsMobileMenuOpen(false)
     }
   }
 
+  const handleHomeClick = (e) => {
+    e.preventDefault()
+    // If already on home page, scroll to top
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      // If on another page, navigate to home
+      window.location.href = "/"
+    }
+    setIsMobileMenuOpen(false)
+  }
+
   const navItems = [
-    { href: "#home", label: "หน้าหลัก" },
-    { href: "#menu", label: "เมนู" },
-    { href: "#gallery", label: "แกลเลอรี่" },
-    { href: "#about", label: "เกี่ยวกับเรา" },
-    { href: "#contact", label: "ติดต่อ" },
+    { href: "/", label: "Home", isHome: true },
+    { href: "#menu", label: "Menu", isExternal: false },
+    { href: "#gallery", label: "Gallery", isExternal: false },
+    { href: "/about", label: "About", isExternal: true },
+    { href: "/contact", label: "Contact", isExternal: true },
   ]
 
   return (
@@ -69,10 +81,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: "smooth" })
-            }}
+            onClick={handleHomeClick}
             className="text-xl font-light tracking-tight text-foreground hover:opacity-70 transition-opacity cursor-pointer"
           >
             AROYÉ
@@ -80,23 +89,44 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-sm font-light text-foreground/80 hover:text-foreground transition-colors relative group cursor-pointer"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.isHome ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={handleHomeClick}
+                  className="text-sm font-light text-foreground/80 hover:text-foreground transition-colors relative group cursor-pointer"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              ) : item.isExternal ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-light text-foreground/80 hover:text-foreground transition-colors relative group cursor-pointer"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="text-sm font-light text-foreground/80 hover:text-foreground transition-colors relative group cursor-pointer"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              )
+            )}
             <ThemeToggle />
             <Button
               size="sm"
               className="h-9 px-6 text-xs font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-none ml-4"
             >
-              จองโต๊ะ
+              Reserve Table
             </Button>
           </div>
 
@@ -106,7 +136,7 @@ export function Navbar() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 text-foreground hover:bg-accent/50 rounded-md transition-colors"
-              aria-label="เมนู"
+              aria-label="Menu"
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? (
@@ -150,19 +180,48 @@ export function Navbar() {
             className="md:hidden border-t border-border/50 overflow-hidden"
           >
             <div className="px-6 py-6 space-y-4 bg-background/95 backdrop-blur-md">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.2 }}
-                  className="block text-base font-light text-foreground/80 hover:text-foreground transition-colors py-2 border-b border-border/30 last:border-b-0"
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+              {navItems.map((item, index) =>
+                item.isHome ? (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    onClick={handleHomeClick}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.2 }}
+                    className="block text-base font-light text-foreground/80 hover:text-foreground transition-colors py-2 border-b border-border/30 last:border-b-0"
+                  >
+                    {item.label}
+                  </motion.a>
+                ) : item.isExternal ? (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.2 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="block text-base font-light text-foreground/80 hover:text-foreground transition-colors py-2 border-b border-border/30 last:border-b-0"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.2 }}
+                    className="block text-base font-light text-foreground/80 hover:text-foreground transition-colors py-2 border-b border-border/30 last:border-b-0"
+                  >
+                    {item.label}
+                  </motion.a>
+                )
+              )}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -176,7 +235,7 @@ export function Navbar() {
                     handleNavClick({ preventDefault: () => {} }, "#contact")
                   }}
                 >
-                  จองโต๊ะ
+                  Reserve Table
                 </Button>
               </motion.div>
             </div>

@@ -5,12 +5,12 @@ export function RestaurantStructuredData() {
     "@type": "Restaurant",
     name: "AROYÉ",
     description:
-      "AROYÉ ร้านอาหารไทยแท้ที่เสิร์ฟอาหารอร่อย วัตถุดิบสดใหม่ทุกวัน พร้อมบริการที่เป็นมิตร",
+      "AROYÉ authentic Thai restaurant serving delicious food with fresh ingredients daily, friendly service",
     image: "https://restaurant.example.com/og-image.jpg",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "123 ถนนสุขุมวิท",
-      addressLocality: "กรุงเทพมหานคร",
+      streetAddress: "123 Sukhumvit Road",
+      addressLocality: "Bangkok",
       postalCode: "10110",
       addressCountry: "TH",
     },

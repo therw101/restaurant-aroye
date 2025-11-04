@@ -31,10 +31,10 @@ export function TestimonialsSection({ testimonials }) {
             id="testimonials-heading"
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl"
           >
-            ความประทับใจจากลูกค้า
+            Customer Reviews
           </h2>
           <p className="text-sm text-muted-foreground font-light">
-            127 รีวิว | คะแนนเฉลี่ย 4.8/5 จากลูกค้าที่ไว้วางใจเรา
+            127 reviews | Average rating 4.8/5 from customers who trust us
           </p>
         </ScrollAnimation>
 

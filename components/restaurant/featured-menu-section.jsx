@@ -31,7 +31,7 @@ export function FeaturedMenuSection({ menuItems }) {
     setLoadingItems((prev) => ({ ...prev, [itemId]: true }))
 
     // Show loading toast
-    const toastId = toast.loading("กำลังเพิ่มเมนู...", {
+    const toastId = toast.loading("Adding menu item...", {
       description: itemName,
     })
 
@@ -43,12 +43,12 @@ export function FeaturedMenuSection({ menuItems }) {
       // await addToCart({ name: itemName, price: itemPrice })
 
       // Success toast
-      toast.success("เพิ่มเมนูสำเร็จ!", {
+      toast.success("Menu item added!", {
         id: toastId,
         description: `${itemName} - ${itemPrice}`,
         duration: 3000,
         action: {
-          label: "ดูตะกร้า",
+          label: "View Cart",
           onClick: () => {
             // Navigate to cart or open cart drawer
             console.log("Navigate to cart")
@@ -57,9 +57,9 @@ export function FeaturedMenuSection({ menuItems }) {
       })
     } catch (error) {
       // Error toast
-      toast.error("เกิดข้อผิดพลาด", {
+      toast.error("An error occurred", {
         id: toastId,
-        description: "ไม่สามารถเพิ่มเมนูได้ กรุณาลองใหม่อีกครั้ง",
+        description: "Unable to add menu item. Please try again",
         duration: 3000,
       })
     } finally {
@@ -92,11 +92,11 @@ export function FeaturedMenuSection({ menuItems }) {
             id="menu-heading"
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl"
           >
-            เมนูแนะนำ
+            Featured Menu
           </h2>
           <p className="text-sm text-muted-foreground font-light max-w-xl mx-auto">
-            เมนูคัดสรรพิเศษ ที่คุณไม่ควรพลาด
-            ทุกจานบอกเล่าเรื่องราวของรสชาติไทยแท้
+            Specially curated menu items you shouldn&apos;t miss Every dish tells the
+            story of authentic Thai flavors
           </p>
         </ScrollAnimation>
 
@@ -120,7 +120,7 @@ export function FeaturedMenuSection({ menuItems }) {
                         <Skeleton className="absolute inset-0 z-0" />
                       )}
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                       <motion.div
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.3 }}
@@ -154,15 +154,15 @@ export function FeaturedMenuSection({ menuItems }) {
                       onClick={() => handleAddToCart(item.name, itemId, item.price)}
                       disabled={loadingItems[itemId]}
                       className="h-10 px-8 text-sm font-bold uppercase transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 bg-background/80 text-foreground backdrop-blur-sm border border-border/50 shadow-lg hover:bg-primary hover:text-primary-foreground disabled:opacity-70 disabled:cursor-not-allowed min-w-[100px]"
-                      aria-label={`สั่ง ${item.name}`}
+                      aria-label={`Order ${item.name}`}
                     >
                       {loadingItems[itemId] ? (
                         <div className="flex items-center gap-2">
                           <Spinner size="sm" />
-                          <span>กำลังเพิ่ม...</span>
+                          <span>Adding...</span>
                         </div>
                       ) : (
-                        "สั่ง"
+                        "Order"
                       )}
                     </Button>
                   </motion.div>
@@ -180,7 +180,7 @@ export function FeaturedMenuSection({ menuItems }) {
                         >
                           <AnimatedFire size={16} />
                           <span className="text-xs font-medium text-red-600 dark:text-red-400">
-                            เผ็ด
+                            Spicy
                           </span>
                         </motion.div>
                       </div>

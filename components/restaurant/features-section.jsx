@@ -9,10 +9,10 @@ export function FeaturesSection({ features }) {
       <div className="mx-auto max-w-6xl">
         <ScrollAnimation className="text-center mb-20 space-y-4">
           <h2 className="text-4xl font-light tracking-tight text-foreground sm:text-5xl">
-            ทำไมต้องเลือกเรา
+            Why Choose Us
           </h2>
           <p className="text-sm text-muted-foreground font-light max-w-xl mx-auto">
-            ความแตกต่างที่คุณสัมผัสได้ตั้งแต่คำแรก
+            The difference you&apos;ll taste from the first bite
           </p>
         </ScrollAnimation>
 

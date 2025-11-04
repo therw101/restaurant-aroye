@@ -161,9 +161,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-sans: var(--font-kanit);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-serif);
+    --font-sans: var(--font-caviar-dreams);
+    --font-mono: var(--font-geist-mono);
+    --font-serif: var(--font-serif);
   --radius: 0.5rem;
   --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
   --tracking-tight: calc(var(--tracking-normal) - 0.025em);
@@ -217,7 +217,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-kanit);
+    font-family: var(--font-caviar-dreams);
     /* Performance optimizations */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

@@ -1,15 +1,35 @@
-import { Kanit, Geist_Mono } from "next/font/google"
+import localFont from "next/font/local"
+import { Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 
-const kanit = Kanit({
-  variable: "--font-kanit",
-  subsets: ["latin", "thai"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const caviarDreams = localFont({
+  src: [
+    {
+      path: "./font/CaviarDreams.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./font/Caviar_Dreams_Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./font/CaviarDreams_Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./font/CaviarDreams_BoldItalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-caviar-dreams",
   display: "swap",
   preload: true,
-  adjustFontFallback: true,
 })
 
 const geistMono = Geist_Mono({
@@ -23,21 +43,21 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: {
     default:
-      "AROYÉ - รสชาติแห่งความเป็นไทย | อาหารไทยแท้ สดใหม่ทุกวัน",
+      "AROYÉ - Authentic Thai Taste | Fresh Thai Cuisine Daily",
     template: "%s | AROYÉ",
   },
   description:
-    "AROYÉ ร้านอาหารไทยแท้ที่เสิร์ฟอาหารอร่อย วัตถุดิบสดใหม่ทุกวัน พร้อมบริการที่เป็นมิตร | เมนูแนะนำ: ต้มยำกุ้ง, ผัดไทย, แกงเขียวหวาน | เปิดบริการ: จ-ศ 11:00-21:00, ส-อา 10:00-22:00 | โทรจอง: 02-123-4567",
+    "AROYÉ authentic Thai restaurant serving delicious food with fresh ingredients daily, friendly service | Featured menu: Tom Yum Goong, Pad Thai, Green Curry | Open: Mon-Fri 11:00-21:00, Sat-Sun 10:00-22:00 | Call: 02-123-4567",
   keywords: [
-    "ร้านอาหารไทย",
-    "อาหารไทยแท้",
-    "ต้มยำกุ้ง",
-    "ผัดไทย",
-    "แกงเขียวหวาน",
-    "อาหารไทยกรุงเทพ",
-    "จองโต๊ะ",
-    "ร้านอาหารสุขุมวิท",
-    "อาหารไทยออร์แกนิก",
+    "Thai restaurant",
+    "authentic Thai food",
+    "Tom Yum Goong",
+    "Pad Thai",
+    "Green Curry",
+    "Bangkok Thai food",
+    "table reservation",
+    "Sukhumvit restaurant",
+    "organic Thai food",
   ],
   authors: [{ name: "AROYÉ" }],
   creator: "AROYÉ",
@@ -49,26 +69,26 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "AROYÉ - รสชาติแห่งความเป็นไทย",
+    title: "AROYÉ - Authentic Thai Taste",
     description:
-      "AROYÉ ร้านอาหารไทยแท้ที่เสิร์ฟอาหารอร่อย วัตถุดิบสดใหม่ทุกวัน พร้อมบริการที่เป็นมิตร",
+      "AROYÉ authentic Thai restaurant serving delicious food with fresh ingredients daily, friendly service",
     url: "/",
     siteName: "AROYÉ",
-    locale: "th_TH",
+    locale: "en_US",
     type: "website",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AROYÉ - รสชาติแห่งความเป็นไทย",
+        alt: "AROYÉ - Authentic Thai Taste",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AROYÉ - รสชาติแห่งความเป็นไทย",
-    description: "AROYÉ ร้านอาหารไทยแท้ที่เสิร์ฟอาหารอร่อย วัตถุดิบสดใหม่ทุกวัน",
+    title: "AROYÉ - Authentic Thai Taste",
+    description: "AROYÉ authentic Thai restaurant serving delicious food with fresh ingredients daily",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -89,8 +109,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="th" suppressHydrationWarning>
-      <body className={`${kanit.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${caviarDreams.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

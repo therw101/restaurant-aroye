@@ -53,10 +53,10 @@ export function AtmosphereGallerySection({ images }) {
             id="atmosphere-gallery-heading"
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl"
           >
-            บรรยากาศร้านอาหาร
+            Restaurant Atmosphere
           </h2>
           <p className="text-sm text-muted-foreground font-light max-w-xl mx-auto">
-            สำรวจบรรยากาศที่น่าดื่มด่ำของเรา สถานที่ที่คุณจะได้สัมผัสความสุขในการรับประทานอาหาร
+            Explore our captivating atmosphere, a place where you&apos;ll experience the joy of dining
           </p>
         </div>
 

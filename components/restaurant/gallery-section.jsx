@@ -35,10 +35,10 @@ export function GallerySection({ menuItems }) {
             id="gallery-heading"
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl"
           >
-            แกลเลอรี่เมนู
+            Menu Gallery
           </h2>
           <p className="text-sm text-muted-foreground font-light max-w-xl mx-auto">
-            สำรวจเมนูหลากหลายของเรา ทุกจานปรุงด้วยความใส่ใจ
+            Explore our diverse menu, every dish prepared with care
           </p>
         </ScrollAnimation>
 
@@ -83,7 +83,7 @@ export function GallerySection({ menuItems }) {
                   </motion.div>
 
                   {/* Enhanced Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Enhanced Content Overlay */}
                   <motion.div
@@ -123,7 +123,7 @@ export function GallerySection({ menuItems }) {
                         <div className="flex items-center gap-2">
                           <AnimatedFire size={18} />
                           <span className="text-xs font-medium text-red-600 dark:text-red-400">
-                            เผ็ด
+                            Spicy
                           </span>
                         </div>
                       </div>
@@ -132,7 +132,7 @@ export function GallerySection({ menuItems }) {
 
                   {/* Shine Effect on Hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   </div>
                 </motion.div>
               </StaggerItem>
